@@ -1,4 +1,3 @@
-import 'package:api_flutter/domain/todo/entity/todo_entity/todo_entity.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 
@@ -18,13 +17,13 @@ abstract class TodoApiService {
 
   @POST("/todos")
   Future<TodoResponse> addTodo(
-    @Body() TodoEntity todoEntity,
+    @Body() TodoResponse todoEntity,
   );
 
   @PUT("/todos/{id}")
   Future<TodoResponse> updateTodo(
     @Path("id") String id,
-    @Body() TodoEntity todoEntity,
+    @Body() TodoResponse todoEntity,
   );
 
   @DELETE("/todos/{id}")

@@ -1,9 +1,9 @@
+import 'package:api_flutter/data/todo/response/todo_response/todo_response.dart';
 import 'package:api_flutter/domain/task/entity/task_entity/task_entity.dart';
 import 'package:api_flutter/presentation/todo/bloc/todo/todo_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../domain/todo/entity/todo_entity/todo_entity.dart';
 import '../../../manager/enum/status_enum.dart';
 
 class TodoPage extends StatefulWidget {
@@ -26,7 +26,7 @@ class _TodoPageState extends State<TodoPage> {
   }
 
   void _onAddTask(String taskTitle) {
-    final newTodo = TodoEntity(
+    final newTodo = TodoResponse(
       title: taskTitle,
       id: DateTime.now().millisecondsSinceEpoch.toString(),
       taskId: widget.task.id,

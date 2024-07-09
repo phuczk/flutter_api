@@ -1,3 +1,4 @@
+import 'package:api_flutter/data/todo/response/todo_response/todo_response.dart';
 import 'package:api_flutter/domain/todo/entity/todo_entity/todo_entity.dart';
 import 'package:api_flutter/domain/todo/repositories/todo_repositories.dart';
 
@@ -22,7 +23,7 @@ class TodoUseCase {
     }
   }
 
-  Future<TodoEntity> addTodo(TodoEntity todo) async {
+  Future<TodoEntity> addTodo(TodoResponse todo) async {
     try {
       return _todoResitory.addTodo(todo);
     } catch (e) {
@@ -30,7 +31,7 @@ class TodoUseCase {
     }
   }
 
-  Future<TodoEntity> updateTodo(String id, TodoEntity todo) async {
+  Future<TodoEntity> updateTodo(String id, TodoResponse todo) async {
     try {
       return _todoResitory.updateTodo(id, todo);
     } catch (e) {

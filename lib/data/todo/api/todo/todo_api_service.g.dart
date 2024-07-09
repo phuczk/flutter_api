@@ -79,7 +79,7 @@ class _TodoApiService implements TodoApiService {
   }
 
   @override
-  Future<TodoResponse> addTodo(TodoEntity todoEntity) async {
+  Future<TodoResponse> addTodo(TodoResponse todoEntity) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -109,7 +109,7 @@ class _TodoApiService implements TodoApiService {
   @override
   Future<TodoResponse> updateTodo(
     String id,
-    TodoEntity todoEntity,
+    TodoResponse todoEntity,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

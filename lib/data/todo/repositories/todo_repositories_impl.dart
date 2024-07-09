@@ -1,4 +1,5 @@
 import 'package:api_flutter/data/todo/api/todo/todo_api_service.dart';
+import 'package:api_flutter/data/todo/response/todo_response/todo_response.dart';
 import 'package:api_flutter/domain/todo/entity/todo_entity/todo_entity.dart';
 import 'package:api_flutter/domain/todo/repositories/todo_repositories.dart';
 import 'package:dio/dio.dart';
@@ -37,26 +38,22 @@ class TodoRespositoryImpl implements TodoRepository {
   }
 
   @override
-  Future<TodoEntity> addTodo(TodoEntity todoEntity) async {
+  Future<TodoEntity> addTodo(TodoResponse todoEntity) async {
     try {
       final httpResponse = await _todoApiService.addTodo(todoEntity);
       return httpResponse;
       // ignore: deprecated_member_use
-    } on DioError catch (e) {
-      throw ApiException.fromDioException(e);
     } catch (e) {
       throw ApiException(message: "Failed to add todos: $e");
     }
   }
 
   @override
-  Future<TodoEntity> updateTodo(String id, TodoEntity todoEntity) async {
+  Future<TodoEntity> updateTodo(String id, TodoResponse todoEntity) async {
     try {
       final httpResponse = await _todoApiService.updateTodo(id, todoEntity);
       return httpResponse;
       // ignore: deprecated_member_use
-    } on DioError catch (e) {
-      throw ApiException.fromDioException(e);
     } catch (e) {
       throw ApiException(message: "Failed to update todos: $e");
     }
@@ -67,8 +64,6 @@ class TodoRespositoryImpl implements TodoRepository {
     try {
       await _todoApiService.deleteTodo(id);
       // ignore: deprecated_member_use
-    } on DioError catch (e) {
-      throw ApiException.fromDioException(e);
     } catch (e) {
       throw ApiException(message: "Failed to delete todo: $e");
     }

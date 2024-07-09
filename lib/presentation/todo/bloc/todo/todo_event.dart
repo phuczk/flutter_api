@@ -20,7 +20,7 @@ class FetchTodoByTaskIdEvent extends TodoEvent {
 }
 
 class AddTodoEvent extends TodoEvent {
-  final TodoEntity todoEntity;
+  final TodoResponse todoEntity;
   const AddTodoEvent({required this.todoEntity});
 
   @override
@@ -29,7 +29,7 @@ class AddTodoEvent extends TodoEvent {
 
 class UpdateTodoEvent extends TodoEvent {
   final String id;
-  final TodoEntity todo;
+  final TodoResponse todo;
   const UpdateTodoEvent({required this.id, required this.todo});
 
   @override
