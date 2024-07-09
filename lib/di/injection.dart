@@ -8,8 +8,8 @@ import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-import '../data/todo/api/task/task_api_service.dart';
-import '../data/todo/repositories/task_repositories_impl.dart';
+import '../data/task/api/task/task_api_service.dart';
+import '../data/task/repositories/task_repositories_impl.dart';
 import '../domain/task/repositories/task_repositories.dart';
 import '../domain/task/usecase/task_use_case.dart';
 import '../presentation/task/bloc/task/task_bloc.dart';
