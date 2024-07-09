@@ -16,7 +16,7 @@ class AddTaskEvent extends TaskEvent {
   const AddTaskEvent({required this.taskEntity});
 
   @override
-  List<Object?> get props => [TaskEntity];
+  List<Object?> get props => [taskEntity];
 }
 
 class UpdateTaskEvent extends TaskEvent {
