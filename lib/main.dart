@@ -1,40 +1,39 @@
-import 'package:api_flutter/di/injection.dart';
-import 'package:api_flutter/domain/task/usecase/task_use_case.dart';
-import 'package:api_flutter/domain/todo/usecase/todo_use_case.dart';
-import 'package:api_flutter/presentation/task/bloc/task/task_bloc.dart';
-import 'package:api_flutter/presentation/task/screen/task_screen.dart';
-import 'package:api_flutter/presentation/todo/bloc/todo/todo_bloc.dart';
+import 'package:api_flutter/data/music/api/music/music_api_service.dart';
+import 'package:api_flutter/data/music/repositories/music_repositories_impl.dart';
+import 'package:api_flutter/domain/music/usecase/music_usecase.dart';
+import 'package:api_flutter/presentation/music/bloc/music/music_bloc.dart';
+import 'package:api_flutter/presentation/music/screen/music_screen.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  setup();
-  runApp(const MyApp());
+  final dio = Dio();
+  final musicApiService = MusicApiService(dio);
+  final musicRepository = MusicRepositoriesImpl(musicApiService);
+  final musicUsecase = MusicUsecase(musicRepository);
+  runApp(MyApp(musicUsecase: musicUsecase));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final MusicUsecase musicUsecase;
+  const MyApp({super.key, required this.musicUsecase});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => TodoBloc(getIt<TodoUseCase>()),
-        ),
-        BlocProvider(
-          create: (context) => TaskBloc(getIt<TaskUseCase>()),
+          create: (context) => MusicBloc(musicUsecase),
         ),
       ],
       child: MaterialApp(
-        title: "api demo",
+        title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const TaskPage(),
+        home: const MusicScreen(),
       ),
     );
   }

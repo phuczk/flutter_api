@@ -12,6 +12,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter_bloc: ^8.1.6
   equatable: ^2.0.5
+  pull_to_refresh_flutter3: ^2.0.2
 
   # Dependency Injection
   get_it: ^7.7.0
@@ -25,6 +26,8 @@ dependencies:
 
   # Json Serialization
   json_annotation: ^4.9.0
+  pin_code_fields: ^8.0.1
+  webview_flutter: ^4.8.0
 
 dev_dependencies:
   flutter_test:
@@ -33,6 +36,13 @@ dev_dependencies:
   flutter_lints: ^3.0.0
   build_runner: ^2.4.9
   json_serializable: ^6.8.0
+  http: ^1.2.2
+  audioplayers: ^6.1.0
+  
+
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/
