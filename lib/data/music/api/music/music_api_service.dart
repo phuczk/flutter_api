@@ -1,10 +1,11 @@
+import 'package:api_flutter/core/constant/api_app.dart';
 import 'package:api_flutter/data/music/response/music_api_response.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 
 part "music_api_service.g.dart";
 
-@RestApi(baseUrl: "https://deezerdevs-deezer.p.rapidapi.com")
+@RestApi(baseUrl: baseUrl)
 abstract class MusicApiService {
   factory MusicApiService(Dio dio) = _MusicApiService;
 

@@ -2,10 +2,11 @@ import 'package:api_flutter/data/music/api/music/music_api_service.dart';
 import 'package:api_flutter/data/music/repositories/music_repositories_impl.dart';
 import 'package:api_flutter/domain/music/usecase/music_usecase.dart';
 import 'package:api_flutter/presentation/music/bloc/music/music_bloc.dart';
-import 'package:api_flutter/presentation/music/screen/music_screen.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'presentation/main/screen/main_screen.dart';
 
 void main() {
   final dio = Dio();
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const MusicScreen(),
+        home: const MainScreen(),
       ),
     );
   }

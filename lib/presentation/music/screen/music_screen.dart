@@ -25,7 +25,7 @@ class _MusicScreenState extends State<MusicScreen> {
     return const Scaffold(
       backgroundColor: Color.fromRGBO(23, 23, 23, 0.09),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 0, vertical: 16),
+        padding: EdgeInsets.only(top: 16),
         child: Column(
           children: [
             SearchInputWidget(),

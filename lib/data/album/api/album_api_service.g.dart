@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'track_api_service.dart';
+part of 'album_api_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'track_api_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element
 
-class _TrackApiService implements TrackApiService {
-  _TrackApiService(
+class _AlbumApiService implements AlbumApiService {
+  _AlbumApiService(
     this._dio, {
     this.baseUrl,
   }) {
@@ -21,7 +21,7 @@ class _TrackApiService implements TrackApiService {
   String? baseUrl;
 
   @override
-  Future<TrackResponse> getTrack(
+  Future<MusicAlbumResponse> fetchAlbums(
     String id,
     String apiKey,
     String apiHost,
@@ -34,14 +34,14 @@ class _TrackApiService implements TrackApiService {
     };
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<TrackResponse>(Options(
+    final _options = _setStreamType<MusicAlbumResponse>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          '/track/${id}',
+          '/album/${id}',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -51,9 +51,9 @@ class _TrackApiService implements TrackApiService {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late TrackResponse _value;
+    late MusicAlbumResponse _value;
     try {
-      _value = TrackResponse.fromJson(_result.data!);
+      _value = MusicAlbumResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       rethrow;
     }
